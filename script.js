@@ -29,16 +29,30 @@ function writePassword() {
   var numericCharacter = window.confirm("Click OK to confirm including numeric characters");
     if (numericCharacter && specialCharacter) {
       var optionsSpecAndNumChar = optionsAndSpecChar.concat(numericArray);
+      console.log("user said yes and yes")
     }
 
-    //else if (numericCharacter && !specialCharacter) {
-     // var optionsAndNumChar = optionsArray.concat(numericArray);
-   // }
+    else if (numericCharacter && !specialCharacter) {
+      var optionsAndNumChar = optionsArray.concat(numericArray);
+      console.log("user said no and yes");
+    }
 
   // Lowercase Character Confirmation
   var lcCharacter = window.confirm("Click OK to confirm including lowercase characters");
-    if (lcCharacter) {
+    if (lcCharacter && specialCharacter && numericCharacter) {
       var optionsSpecNumAndLcChar = optionsSpecAndNumChar.concat(lowercaseArray);
+    }
+
+    else if (lcCharacter && !specialCharacter && !numericCharacter) {
+      var optionsAndLcChar = optionsArray.concat(lowercaseArray);
+    }
+
+    else if (lcCharacter && specialCharacter && !numericCharacter) {
+      var optionsSpecAndLcChar = optionsAndSpecChar.concat(lowercaseArray);
+    }
+
+    else if (lcCharacter && !specialCharacter && numericCharacter) {
+      var optionsNumandLcChar = optionsAndNumChar.concat(lowercaseArray);
     }
 
   // Uppercase Character Confirmation
