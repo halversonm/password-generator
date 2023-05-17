@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 passwordText.value = "password goes here";
 var specialArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "\"", "+", ",", "-", ".", "/", ":", ";", "<",
-  "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", " ",];
+  "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", " ", "~",];
 var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
   "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 
@@ -29,12 +29,10 @@ function writePassword() {
   var numericCharacter = window.confirm("Click OK to confirm including numeric characters");
     if (numericCharacter && specialCharacter) {
       var optionsSpecAndNumChar = optionsAndSpecChar.concat(numericArray);
-      console.log("user said yes and yes")
     }
 
     else if (numericCharacter && !specialCharacter) {
       var optionsAndNumChar = optionsArray.concat(numericArray);
-      console.log("user said no and yes");
     }
 
   // Lowercase Character Confirmation
@@ -57,9 +55,47 @@ function writePassword() {
 
   // Uppercase Character Confirmation
   var ucCharacter = window.confirm("Click OK to confirm including uppercase characters");
-    if (ucCharacter) {
+    if (ucCharacter && specialCharacter && numericCharacter && lcCharacter) {
       var optionsSpecNumLcAndUcChar = optionsSpecNumAndLcChar.concat(uppercaseArray);
+      console.log("user wanted all characters " + optionsSpecNumLcAndUcChar);
     }
+
+    else if (ucCharacter && !specialCharacter && !numericCharacter && !lcCharacter) {
+      var optionsAndUcChar = optionsArray.concat(uppercaseArray);
+      console.log("user wanted only UC characters " + optionsAndUcChar);
+    }
+
+    else if (ucCharacter && !specialCharacter && !numericCharacter && lcCharacter) {
+      var optionsLcAndUcChar = optionsAndLcChar.concat(uppercaseArray);
+      console.log("user wanted LC and UC characters " + optionsLcAndUcChar);
+    }
+
+    else if (ucCharacter && !specialCharacter && numericCharacter && !lcCharacter) {
+      var optionsNumAndUcChar = optionsAndNumChar.concat(uppercaseArray);
+      console.log("user wanted num and UC characters " + optionsNumAndUcChar);
+    }
+
+    else if (ucCharacter && specialCharacter && !numericCharacter && !lcCharacter) {
+      var optionsSpecAndUcChar = optionsAndSpecChar.concat(uppercaseArray);
+      console.log("user wanted spec and UC characters " + optionsSpecAndUcChar);
+    }
+
+    else if (ucCharacter && specialCharacter && numericCharacter && !lcCharacter) {
+      var optionsSpecNumAndUcChar = optionsSpecAndNumChar.concat(uppercaseArray);
+      console.log("user wanted spec, num, and UC characters " + optionsSpecNumAndUcChar);
+    }
+
+    else if (ucCharacter && specialCharacter && !numericCharacter && lcCharacter) {
+      var optionsSpecLcAndUcChar = optionsSpecAndLcChar.concat(uppercaseArray);
+      console.log("user wanted spec, lc, and uc characters " + optionsSpecLcAndUcChar);
+    }
+
+    else if (ucCharacter && !specialCharacter && numericCharacter && lcCharacter) {
+      var optionsNumLcAndUcChar = optionsNumandLcChar.concat(uppercaseArray);
+      console.log("user wanted num, lc and uc characters " + optionsNumLcAndUcChar);
+    }
+
+    else alert("We've ran into a problem, please reach out to let us know what selections you've made");
 
 
 }
