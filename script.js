@@ -21,7 +21,12 @@ function writePassword() {
     
     if (passwordLength > 129) {
       alert("Password must be under 129 characters");
-     return;
+      return;
+    }
+
+    if (passwordLength < 8) {
+      alert("Password must be at least 8 characters");
+      return;
     }
     
   
@@ -54,8 +59,6 @@ function writePassword() {
       alert("No characters were included in password generation");
       return;
     }
-
-  console.log ("This is endString before for loop: " + endString);
 
   for (var i = 0; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * endString.length);
