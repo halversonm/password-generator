@@ -3,11 +3,11 @@ var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 passwordText.value = "";
 
- var specialString = "!#$%&'()*\"+,-./:;<=>?@[\\]^_`{|} ~";
- var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
- var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
- var numericString = "1234567890"
- var endString = "";
+var specialString = "!#$%&'()*\"+,-./:;<=>?@[\\]^_`{|} ~";
+var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
+var numericString = "1234567890"
+var endString = "";
 
 
 function writePassword() {
